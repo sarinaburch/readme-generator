@@ -88,7 +88,7 @@ ${answers.usage}
 ${answers.test}
 
 ## Questions
-${answers.questons}
+${answers.questions}
 * Email: [${answers.email}](${answers.email})
 * Username: [${answers.username}](https://github.com/${answers.username})`
 
