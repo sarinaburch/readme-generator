@@ -10,13 +10,13 @@ inquirer.prompt( [
     {
         type: "input",
         message: "Describe your project.",
-        name: "description,"
+        name: "description",
     },
     {
-        type: "list",
+        type: "input",
         message: "Describe your installation instructions.",
-        choices: ["npm i"],
         name: "installation",
+        default: "npm i"
     },   
     {
         type: "input",
@@ -27,7 +27,7 @@ inquirer.prompt( [
     {
         type: "list",
         message: "What is your project license?",
-        choices: [""],
+        choices: ["MIT", "APACHE 2.0", "GPL 3.0", "BSD 3", "None"],
         name: "license",
     },
     
@@ -49,28 +49,35 @@ inquirer.prompt( [
  
 ]).then(answers => {
     let readMe = 
-         `# ${answers.projectName};
-    ## Description 
-    ** ${answers.description};
-    ## Table of Contents
-        * Installation
-        * Usage
-        * License
-        * Contributing
-        * Tests
-        * Questions
-    ## Installation
-    ${answers.installation}`;
+    `# ${answers.projectName}
+
+## Description 
+        ${answers.description}
+
+## Table of Contents
+* [Installation](answers.installation)
+* [Usage](answers.usage)
+* [License](answers.license)
+* [Contributing](answers.contribution)
+* [Tests](answers.test)
+* [Questions](answers.questions)
+* 
+## Installation
+        ${answers.installation}
     
-    // ## Usage;
-    // ## License;
-    // ## Contributing;
-    //     http:www.github.com/ + answers.contributing
+## Usage;
+
+## License
+![github badge](https://img.shields.io/badge/${answers.license}.license-green)`
+     
+    // ## Contributors
+    // ${answers.contribution}
+      
     // ## Tests;
     // ## Questions`
      
 
-    fs.writeFile("README.md", readMe, err => {
+    fs.writeFile(answers.projectName + "README.md", readMe, err => {
       if (err) {
           return console.log(err)
         }
