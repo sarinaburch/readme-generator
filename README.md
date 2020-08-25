@@ -27,6 +27,5 @@ README Generator is used to response to prompts in the command line and it will 
 ![README Demo](Assets/Demo.gif)
 
 ## Questions
-undefined
 * Email: [sarinaburch52@gmail.com](sarinaburch52@gmail.com)
 * Username: [sarinaburch](https://github.com/sarinaburch)
