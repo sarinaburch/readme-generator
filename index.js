@@ -13,8 +13,9 @@ inquirer.prompt( [
         name: "description,"
     },
     {
-        type: "input",
+        type: "list",
         message: "Describe your installation instructions.",
+        choices: ["npm i"],
         name: "installation",
     },   
     {
@@ -32,7 +33,7 @@ inquirer.prompt( [
     
     {
         type: "contribution",
-        message: "Who all contributed to this project?",
+        message: "Who contributed to this project?",
         name:"contribution",
         }, 
     {
@@ -46,11 +47,33 @@ inquirer.prompt( [
         name: "questions",
     },
  
-]). then(answers => {
-    let read = "";
-    fs.writeFile("README.md", readme, err => {
-        if (err) {
-            return console.log(err);
+]).then(answers => {
+    let readMe = 
+         `# ${answers.projectName};
+    ## Description 
+    ** ${answers.description};
+    ## Table of Contents
+        * Installation
+        * Usage
+        * License
+        * Contributing
+        * Tests
+        * Questions
+    ## Installation
+    ${answers.installation}`;
+    
+    // ## Usage;
+    // ## License;
+    // ## Contributing;
+    //     http:www.github.com/ + answers.contributing
+    // ## Tests;
+    // ## Questions`
+     
+
+    fs.writeFile("README.md", readMe, err => {
+      if (err) {
+          return console.log(err)
         }
+        else console.log("README Generator was a success!")
     })
 })
