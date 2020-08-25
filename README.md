@@ -24,7 +24,7 @@ README Generator is used to response to prompts in the command line and it will 
     sarinaburch
       
 ## Test
-![README Demo](Assets/demo.gif)
+![README Demo](Assets/Demo.gif)
 
 ## Questions
 undefined
