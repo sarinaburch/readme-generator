@@ -4,6 +4,16 @@ var fs = require("fs");
 inquirer.prompt( [
     {
         type: "input",
+        message: "What is your GitHub username?",
+        name: "username",
+    },
+    {
+        type: "input",
+        message: "What is your email?",
+        name: "email",
+    },
+    {
+        type: "input",
         message: "What's your project name?",
         name: "projectName",
     },
@@ -61,20 +71,27 @@ inquirer.prompt( [
 * [Contributing](answers.contribution)
 * [Tests](answers.test)
 * [Questions](answers.questions)
-* 
+
 ## Installation
         ${answers.installation}
     
-## Usage;
+## Usage
+${answers.usage}
 
 ## License
-![github badge](https://img.shields.io/badge/${answers.license}.license-green)`
+![github badge](https://img.shields.io/badge/${answers.license}.license-green)
      
-    // ## Contributors
-    // ${answers.contribution}
+## Contributors
+    ${answers.contribution}
       
-    // ## Tests;
-    // ## Questions`
+## Test
+${answers.test}
+
+## Questions
+${answers.questons}
+* Email: [${answers.email}](${answers.email})
+* Username: [${answers.username}](https://github.com/${answers.username})`
+
      
 
     fs.writeFile(answers.projectName + "README.md", readMe, err => {
